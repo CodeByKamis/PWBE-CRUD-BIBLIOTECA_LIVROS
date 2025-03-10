@@ -7,6 +7,24 @@
 </head>
 <body>
     <h1>Biblioteca de livros Bosch</h1>
+
+
+
+    <form method="post">
+        
+        {% csrf_token %}
+        {% url 'lista_livros' %}
+        <input type="text" id="campoPesquisa" name="campoPesquisa" placeholder="Digite o título do livro">
+        <button type="submit">Pesquisar</button>
+    </form>
+    
+    <ul>
+        {% for livro in livros %}
+            <li>{{ livro.titulo }}</li>
+        {% endfor %}
+    </ul>
+
+
     <a href="{% url 'item_creat' %}">Criar um novo livro</a>
     <main>
         <ul>

@@ -4,6 +4,10 @@ from .forms import ItemForm
 
 def lista_livros(request):
     livros = Livros.objects.all().order_by('-data_criacao')
+    if request.method == 'POST':
+        pesquisa = request.POST.get('campoPesquisa')
+        if pesquisa:
+            livros = Livros.objects.filter(titulo__icontains=pesquisa).order_by('-data_criacao')
     return render(request, 'blog/lista_livros.html', {'livros': livros})
 
 def item_creat(request):

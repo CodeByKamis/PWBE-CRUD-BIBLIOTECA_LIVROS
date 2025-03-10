@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Livros Bosch</title>
+</head>
+<body>
+    <h1>Biblioteca de livros Bosch</h1>
+    <a href="{% url 'item_creat' %}">Criar um novo livro</a>
+    <main>
+        <ul>
+            {% for i in livros %}
+                <li>
+                    <h2>Título do livro:{{ i.titulo }}</h2>
+                    <p>Autor(a) do livro:{{ i.autor }}</p>
+                    <p>Data de criação:{{ i.data_criacao }}</p>
+                    <p>Informações adicionais do livro:{{ i.informacoes|slice:":255" }}...</p>
+                    <a href="{% url 'item_update' i.pk %}">Editar</a>
+                    <a href="{% url 'item_delete' i.pk%}">Deletar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+
+</body>
+</html>

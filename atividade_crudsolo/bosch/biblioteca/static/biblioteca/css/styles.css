@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* coloquei uma cor específica em toda a página e uma fonte também */
+body{
+    background-color: #fff2f9;
+    font-family: 'Poppins', sans-serif;
+}
+/* titulo de bem-vindo */
+.bem-vindo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EC4399;
+    padding: 20px 0;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+}
+
+/* essa é a div pesquisa que abrange o título, campo e botão */
+.pesquisa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    color: #EC4399;
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: none;
+    width: 100%;
+}
+/* texto pesquisar, coloquei grid para ele ficar no meio */
+.text-pesquisa{
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+/* esse eu ocultei porque ele ficava mostrando uma / na página */
+.oculto{
+    display: none;
+    text-decoration: none;
+}
+/* centraliza o campo de pesquisa e o botão da página */
+.centralizar-pesquisa{
+    display: grid;
+    place-items: center;
+}
+/* estilização do campo de pesquisa */
+.campo-pesquisa{
+    display: flex;
+    border: 2px solid #EC4399;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px rgb(68, 68, 68);
+    padding-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-shadow: #EC4399;
+    margin-bottom: 19px;
+    width: 300px;
+}
+/* estilização do botao de pesquisa */
+.botao-pesquisar{
+    display: flex;
+    
+    padding: 10px 20px;
+    background-color: #EC4399;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+    text-align: center;
+
+}
+/* estilização da div criar livros que é o botão + os livros cadastrados */
+.criarlivro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.criarlivro a{
+    color: #EC4399;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.criarlivro ul{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.criarlivro li{
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.criarlivro li:hover {
+    border: 2px solid #EC4399; /* Borda rosa ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* A sombra permanece */
+}
+
+.criarlivro li h2{
+    margin-bottom: 10px;
+}
+
+.criarlivro li p{
+    margin-bottom: 5px;
+}
+
+.criarlivro li a{
+    color: #EC4399;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.criarlivro li a:hover {
+    border: 2px solid #EC4399;
+    padding: 5px;
+    border-radius: 9px;
+}
+
+/* estilização do footer */
+.final{
+    position:fixed;
+    bottom:0;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EC4399;
+    padding: 9px;
+    color: #fff;
+
+}

@@ -1,45 +1,68 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca de Livros Bosch</title>
+    <link rel="stylesheet" href="{% static 'biblioteca/css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Biblioteca de livros Bosch</h1>
+    <header>
+        <div class="bem-vindo">
+            <h1 class="text">Biblioteca Robert Bosch</h1>
+        </div>
+    </header>
 
-
-
-    <form method="post">
-        
-        {% csrf_token %}
-        {% url 'lista_livros' %}
-        <input type="text" id="campoPesquisa" name="campoPesquisa" placeholder="Digite o título do livro">
-        <button type="submit">Pesquisar</button>
-    </form>
-    
-    <ul>
-        {% for livro in livros %}
-            <li>{{ livro.titulo }}</li>
-        {% endfor %}
-    </ul>
-
-
-    <a href="{% url 'item_creat' %}">Criar um novo livro</a>
+<!-- essa é a home que o usuário irá ver ao iniciar o sistema, onde ele pode visualizar os livros que contem no sistema, realizar buscas e edições/deleções -->
     <main>
-        <ul>
-            {% for i in livros %}
-                <li>
-                    <h2>Título do livro:{{ i.titulo }}</h2>
-                    <p>Autor(a) do livro:{{ i.autor }}</p>
-                    <p>Data de criação:{{ i.data_criacao }}</p>
-                    <p>Informações adicionais do livro:{{ i.informacoes|slice:":255" }}...</p>
-                    <a href="{% url 'item_update' i.pk %}">Editar</a>
-                    <a href="{% url 'item_delete' i.pk%}">Deletar</a>
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="pesquisa">
+            <form method="post">
+                <p class="text-pesquisa">PESQUISAR</p>
+                <div class="oculto">
+                    {% csrf_token %}
+                    {% url 'lista_livros' %}  
+                </div>
+                
+                <div class="centralizar-pesquisa">
+                    <input class="campo-pesquisa" type="text" id="campoPesquisa" name="campoPesquisa" placeholder="Digite o título do livro">
+               
+                <button type="submit" class="botao-pesquisar">Confirmar pesquisa</button>
+                
+                </div>
+                
+            </form>
+            
+            <!-- <ul>
+                {% for livro in livros %}
+                    <li>{{ livro.titulo }}</li>
+                {% endfor %}
+            </ul> -->
+        </div>
+
+        <div class="criarlivro">
+            <a href="{% url 'item_creat' %}">Criar um novo livro</a>
+            <ul>
+                {% for i in livros %}
+                    <li>
+                        <h2>Título do livro:{{ i.titulo }}</h2>
+                        <p>Autor(a) do livro:{{ i.autor }}</p>
+                        <p>Data de criação:{{ i.data_criacao }}</p>
+                        <p>Informações adicionais do livro:{{ i.informacoes|slice:":255" }}...</p>
+                        <a href="{% url 'item_update' i.pk %}">Editar</a>
+                        <a href="{% url 'item_delete' i.pk%}">Deletar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </main>
+
+    <footer class="final">
+        <p>Fim da página</p>
+    </footer>
 
 </body>
 </html>

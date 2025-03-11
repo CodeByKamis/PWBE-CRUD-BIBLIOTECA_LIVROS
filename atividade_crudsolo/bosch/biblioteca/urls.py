@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# essas são as urls de cada views
 urlpatterns = [
  path('', views.lista_livros, name='lista_livros'),
  path('criar/', views.item_creat, name='item_creat'),
